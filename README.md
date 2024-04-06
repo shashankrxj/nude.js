@@ -50,6 +50,7 @@ Allows direct scanning of provided image data. Parameters include the image data
 
 ### Example
 ```Javascript
+//for scanning images
 nude.load(node);
 // Scan it
 nude.scan(function(result){ 
@@ -57,7 +58,7 @@ nude.scan(function(result){
 });
 ```
 ```Javascript
-// Assume we have the image data, width, and height from a video frame
+//for scanning videos
 var imageData = /* obtain image data */;
 var width = /* video frame width */;
 var height = /* video frame height */;
