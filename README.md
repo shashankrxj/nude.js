@@ -20,7 +20,14 @@ Add images as usual
 <img src="sample2.jpg" alt="Alt text" id="image2" onclick="onImageClick('image2');" />
 <img src="sample3.jpg" alt="Alt text" id="image3" onclick="onImageClick('image3');" />
 ```
-Then run the checking algorithm on the images you want to run it on
+Add videos as usual (
+```HTML
+<video id="demoVideo" width="320" height="240" controls>
+  <source src="sample1.mp4" type="video/mp4">
+</video>
+```
+
+Then run the checking algorithm on the images and video you want to run it on
 
 ##### nude.js provides 3 functions:
 
@@ -37,12 +44,27 @@ It uses 2 types of parameters: a valid id of an element in the document’s body
 
 This function initiates the scanning process, the optional function is executed after the scanning process finished.
 
+**nude.scanVideo(imageData, width, height, callback)**
+
+Allows direct scanning of provided image data. Parameters include the image data, width, height, and a callback function to handle the result.
+
 ### Example
 ```Javascript
 nude.load(node);
 // Scan it
 nude.scan(function(result){ 
     alert(result ? "Nudity found in " + node.id + "!" : "Not nude");
+});
+```
+```Javascript
+// Assume we have the image data, width, and height from a video frame
+var imageData = /* obtain image data */;
+var width = /* video frame width */;
+var height = /* video frame height */;
+
+// Perform direct video scan
+nude.scanVideo(imageData, width, height, function(result) {
+    alert(result ? "Nudity found in video frame!" : "No nudity detected in video frame");
 });
 ```
 
